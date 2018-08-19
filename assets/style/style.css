@@ -1,0 +1,234 @@
+*
+{   box-sizing: border-box;
+}
+
+:root
+{   --bg-color: blue;
+    --border-color: black;
+    --btn-color: blue;
+    --btn-bg-color: blue;
+    --btn-border-color: blue;
+    --text-color: white;
+    --head-bg-color: green;
+    --head-border-color: #004400;
+}
+
+body
+{   /* background: purple; */
+    /* background: url("../images/starwars.jpg"); */
+    color: black;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* style specific to header and button bar
+*/
+
+.top-push
+{   /* background: indigo; */
+    height: 5px;
+    width: 100%;
+}
+
+header
+{   background: var(--head-bg-color);
+    border-color: var(--head-border-color);
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px auto;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+}
+
+.button-bar
+{   /* background: purple; */
+    height: 24px;
+    margin: 5px auto;
+    /* margin-bottom: 20px; */
+    overflow: auto;
+    width: 90%;
+}
+
+button
+{   background: var(--btn-bg-color);
+    border-color: var(--btn-border-color);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 10px;
+    float: left;
+    margin-right: 5px;
+    padding: 5px 10px 5px 10px;
+    /* width: 100%; */
+}
+
+button:hover
+{   background: white;
+    border-color: white;
+}
+
+.button-spacer
+{   float: left;
+    width: 25px;
+}
+
+/* end style specific to header and button bar
+*/
+
+/* begin style specific to the game
+*/
+
+main
+{   background: rgba(255, 0, 255, 0.5);
+    /* border-color: black;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px; */
+    clear: both;
+    height: auto;
+    margin: 0px auto;
+    width: 90%;
+}
+
+.choice-box, .fight-box
+{   clear: both;
+    display: flex;
+    justify-content: center;
+}
+
+.choice
+{   border: 1px solid black;
+    border-radius: 2px;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: auto;
+    text-align: center;
+    width: 152px;
+}
+
+.choice img, .fight-box img
+{   border: 2px solid black;
+    border-radius: 50%;
+    float: left;
+    height: 150px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    width: 150px;
+}
+
+.fight-box img
+{   margin-left: 20px;
+    margin-right: 20px;
+}
+
+#prompt-box, .name-box
+{   background-color: rgba(255, 255, 0, 0.5);
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.stat-box, .name-box
+{   border: 1px solid red;
+    height: 24px;
+    margin: 0px auto;
+    position: relative;
+    width: 75%;
+}
+
+.name-box
+{   margin-bottom: 5px;
+}
+
+.health-text
+{   float: left;
+    width: 25%;
+}
+
+.health-box
+{   border: 1px solid black;
+    border-radius: 2px;
+    float: left;
+    height: auto;
+    padding: 2px;
+    position: relative;
+    width: 75%;
+}
+
+#player-health, #opponent-health
+{   height: 20px;
+    width: 75%;
+}
+
+/* end style specific to the game
+*/
+
+/* begin style specific to sticky footer
+*/
+
+body, html
+{   height: 100%;
+}
+
+.wrapper
+{   height: auto;
+    margin: 0px;
+    margin-bottom: -42px;
+    min-height: 100%;
+    padding: 0px;
+}
+
+.push
+{   /* background: yellow; */
+    height: 42px;
+    width: 100%;
+}
+
+footer
+{   background: var(--head-bg-color);
+    border-color: var(--head-border-color);
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    clear: both;
+    font-size: 10px;
+    height: auto;
+    margin: 5px auto;
+    padding: 10px;
+    text-align: center;
+    width: 90%
+}
+
+/* end style specific to sticky footer
+*/
+
+@media screen and (max-width: 992px)
+{   body
+    {   background-color: rgba(255, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 768px)
+{   body
+    {   background-color: rgba(0, 255, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 576px)
+{   body
+    {   background-color: rgba(0, 0, 255, 0.5);
+    }
+}

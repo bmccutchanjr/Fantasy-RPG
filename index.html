@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF=8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Star Wars RPG</title>
+
+        <link href="assets/style/reset.css"
+              rel="stylesheet"
+              type="text/css">
+        <link href="assets/style/style.css"
+              rel="stylesheet"
+              type="text/css">
+        <style>
+        </style>
+        <!-- link to jQuery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body onload="game.init()">
+        <div class="wrapper">
+            <div class="top-push"></div>
+            <header>
+                <h1>Star Wars RPG</h1>
+            </header>
+
+            <div class="button-bar">
+                <button id="theme-button">
+                    SHOW THEMES
+                </button>
+
+                <button id="boxer-theme">
+                    BOXERS
+                </button>
+
+                <button id="scooby-theme">
+                    SCOOBY DOO
+                </button>
+
+                <button id="star-wars-theme">
+                    STAR WARS
+                </button>
+
+                <div class="button-spacer">&nbsp;</div>
+
+                <button id="instr-button">
+                    SHOW INSTRUCTIONS
+                </button>
+
+                <div class="button-spacer">&nbsp;</div>
+
+                <button id="fight-button">
+                    FIGHT!
+                </button>
+            </div>
+
+            <main>
+                <div class="choice-box">
+                <div class="choice" id="choice-1">
+                    <div id="name-1">
+                        NAME
+                    </div>
+                    <img src="http://placehold.it/150x150" alt="avatar #1">
+                    <div id="strength-1">
+                        Health
+                    </div>
+                </div>
+
+                <div class="choice" id="choice-1">
+                    <div id="name-2">
+                        NAME
+                    </div>
+                    <img src="http://placehold.it/150x150" alt="avatar #2">
+                    <div id="strength-1">
+                        Health
+                    </div>
+                </div>
+    
+                <div class="choice" id="choice-1">
+                    <div id="name-3">
+                        NAME
+                    </div>
+                    <img src="http://placehold.it/150x150" alt="avatar #3">
+                    <div id="strength-1">
+                        Health
+                    </div>
+                </div>
+        
+                <div class="choice" id="choice-1">
+                    <div id="name-4">
+                        NAME
+                    </div>
+                    <img src="http://placehold.it/150x150" alt="avatar #4">
+                    <div id="strength-1">
+                        Health
+                    </div>
+                </div>
+                </div>
+
+                <div id="prompt-box">
+                    Pick your avatar!
+                </div>
+    
+                <div class="name-box" id="player-name">
+                    Name
+                </div>
+                <div class="stat-box">
+                    <div class="health-text">
+                        Health remaining:
+                    </div>
+                    <div class="health-box">
+                        <div id="player-health">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fight-box">
+                    <img src="http://placehold.it/150x150" alt="avatar #1" id="fighter-1">
+        
+                    <img src="http://placehold.it/150x150" alt="avatar #2" id="fighter-2">
+                </div>
+
+                <div class="name-box" id="opponent-name">
+                    Name
+                </div>
+                <div class="stat-box">
+                    <div class="health-text">
+                        Health remaining:
+                    </div>
+                    <div class="health-box">
+                        <div id="opponent-health">
+    
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="push"></div>
+        </div>
+
+        <footer>
+            Copyright&copy;
+        </footer>
+    </body>
+
+    <script language="JavaScript">
+    $().on("ready", function()
+    {
+
+    });
+    </script>
+</html>
