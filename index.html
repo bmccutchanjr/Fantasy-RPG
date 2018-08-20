@@ -18,7 +18,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
-    <body onload="game.init()">
+    <body>
         <div class="wrapper">
             <div class="top-push"></div>
             <header>
@@ -26,73 +26,73 @@
             </header>
 
             <div class="button-bar">
-                <button id="theme-button">
-                    SHOW THEMES
+                <button id="fight-button">
+                    FIGHT!
                 </button>
-
-                <button id="boxer-theme">
-                    BOXERS
-                </button>
-
-                <button id="scooby-theme">
-                    SCOOBY DOO
-                </button>
-
-                <button id="star-wars-theme">
-                    STAR WARS
-                </button>
-
+        
                 <div class="button-spacer">&nbsp;</div>
-
+    
                 <button id="instr-button">
                     SHOW INSTRUCTIONS
                 </button>
 
                 <div class="button-spacer">&nbsp;</div>
 
-                <button id="fight-button">
-                    FIGHT!
+                <button id="theme-button">
+                    SHOW THEMES
+                </button>
+    
+                <button id="boxer-theme" class="themes" which="boxers">
+                    BOXERS
+                </button>
+    
+                <button id="scooby-theme" class="themes" which="scooby doo">
+                    SCOOBY DOO
+                </button>
+    
+                <button id="star-wars-theme" class="themes" which="star wars">
+                    STAR WARS
                 </button>
             </div>
 
             <main>
                 <div class="choice-box">
-                <div class="choice" id="choice-1">
+                <div class="choice" id="choice-1" which="1">
                     <div id="name-1">
                         NAME
                     </div>
-                    <img src="http://placehold.it/150x150" alt="avatar #1">
-                    <div id="strength-1">
+                    <img src="http://placehold.it/150x150" id="img-1" alt="avatar #1">
+                    <div id="health-1">
                         Health
                     </div>
                 </div>
 
-                <div class="choice" id="choice-1">
+                <div class="choice" id="choice-2" which="2">
                     <div id="name-2">
                         NAME
                     </div>
-                    <img src="http://placehold.it/150x150" alt="avatar #2">
-                    <div id="strength-1">
+                    <img src="http://placehold.it/150x150" id="img-2" alt="avatar #2">
+                    <div id="health-2">
                         Health
                     </div>
                 </div>
     
-                <div class="choice" id="choice-1">
+                <div class="choice" id="choice-3" which="3">
                     <div id="name-3">
                         NAME
                     </div>
-                    <img src="http://placehold.it/150x150" alt="avatar #3">
-                    <div id="strength-1">
+                    <img src="http://placehold.it/150x150" id="img-3" alt="avatar #3">
+                    <div id="health-3">
                         Health
                     </div>
                 </div>
         
-                <div class="choice" id="choice-1">
+                <div class="choice" id="choice-4" which="4">
                     <div id="name-4">
                         NAME
                     </div>
-                    <img src="http://placehold.it/150x150" alt="avatar #4">
-                    <div id="strength-1">
+                    <img src="http://placehold.it/150x150" id="img-4" alt="avatar #4">
+                    <div id="health-4">
                         Health
                     </div>
                 </div>
@@ -102,10 +102,10 @@
                     Pick your avatar!
                 </div>
     
-                <div class="name-box" id="player-name">
+                <div class="name-box the-fight" id="player-name">
                     Name
                 </div>
-                <div class="stat-box">
+                <div class="stat-box the-fight">
                     <div class="health-text">
                         Health remaining:
                     </div>
@@ -116,16 +116,16 @@
                     </div>
                 </div>
 
-                <div class="fight-box">
+                <div class="fight-box the-fight">
                     <img src="http://placehold.it/150x150" alt="avatar #1" id="fighter-1">
         
                     <img src="http://placehold.it/150x150" alt="avatar #2" id="fighter-2">
                 </div>
 
-                <div class="name-box" id="opponent-name">
+                <div class="name-box the-fight" id="opponent-name">
                     Name
                 </div>
-                <div class="stat-box">
+                <div class="stat-box the-fight">
                     <div class="health-text">
                         Health remaining:
                     </div>
@@ -145,10 +145,7 @@
         </footer>
     </body>
 
-    <script language="JavaScript">
-    $().on("ready", function()
-    {
-
-    });
-    </script>
+    <script language="JavaScript"
+            src="assets/javascript/game.js">
+</script>
 </html>
