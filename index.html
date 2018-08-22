@@ -20,19 +20,13 @@
 
     <body>
         <div class="wrapper">
-            <div class="top-push"></div>
+            <!--div class="top-push"></div-->
             <header>
                 <h1>Star Wars RPG</h1>
             </header>
 
             <div class="button-bar">
-                <button id="fight-button">
-                    FIGHT!
-                </button>
-        
-                <div class="button-spacer">&nbsp;</div>
-    
-                <button id="instr-button">
+                <button id="show-instructions">
                     SHOW INSTRUCTIONS
                 </button>
 
@@ -42,22 +36,22 @@
                     SHOW THEMES
                 </button>
     
-                <button id="boxer-theme" class="themes" which="boxers">
+                <button id="boxer-theme" class="themes" theme="boxers">
                     BOXERS
                 </button>
     
-                <button id="scooby-theme" class="themes" which="scooby doo">
+                <button id="scooby-theme" class="themes" theme="scooby doo">
                     SCOOBY DOO
                 </button>
     
-                <button id="star-wars-theme" class="themes" which="star wars">
+                <button id="star-wars-theme" class="themes" theme="star wars">
                     STAR WARS
                 </button>
             </div>
 
             <main>
                 <div class="choice-box">
-                <div class="choice" id="choice-1" which="1">
+                <div class="choice icon-box" id="choice-1" which="1">
                     <div id="name-1">
                         NAME
                     </div>
@@ -67,7 +61,7 @@
                     </div>
                 </div>
 
-                <div class="choice" id="choice-2" which="2">
+                <div class="choice icon-box" id="choice-2" which="2">
                     <div id="name-2">
                         NAME
                     </div>
@@ -77,7 +71,7 @@
                     </div>
                 </div>
     
-                <div class="choice" id="choice-3" which="3">
+                <div class="choice icon-box" id="choice-3" which="3">
                     <div id="name-3">
                         NAME
                     </div>
@@ -87,7 +81,7 @@
                     </div>
                 </div>
         
-                <div class="choice" id="choice-4" which="4">
+                <div class="choice icon-box" id="choice-4" which="4">
                     <div id="name-4">
                         NAME
                     </div>
@@ -98,11 +92,11 @@
                 </div>
                 </div>
 
-                <div id="prompt-box">
-                    Pick your avatar!
-                </div>
-    
-                <div class="name-box the-fight" id="player-name">
+                <div class="choice text-box" id="result-box"></div>
+
+                <div id="prompt-box">Pick your avatar</div>
+        
+                <div class="text-box the-fight" id="player-name">
                     Name
                 </div>
                 <div class="stat-box the-fight">
@@ -118,11 +112,12 @@
 
                 <div class="fight-box the-fight">
                     <img src="http://placehold.it/150x150" alt="avatar #1" id="fighter-1">
+                    <div> <b>VS</b> </div>
         
                     <img src="http://placehold.it/150x150" alt="avatar #2" id="fighter-2">
                 </div>
 
-                <div class="name-box the-fight" id="opponent-name">
+                <div class="text-box the-fight" id="opponent-name">
                     Name
                 </div>
                 <div class="stat-box the-fight">
@@ -135,14 +130,53 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="text-box the-fight" id="avatar-box"></div>
+                <div class="text-box the-fight" id="opponent-box"></div>
+
+                <div class="fight-bar the-fight">
+                <button id="fight-button">
+                    FIGHT!
+                </button>
+                </div>
+            
             </main>
 
             <div class="push"></div>
         </div>
 
-        <footer>
+        <footer id="footer">
             Copyright&copy;
         </footer>
+
+        <section class="info-screen" id="instructions">
+            <h4>How To Play The Game</h4>
+            <p>The object of the game is to defeat all of your opponents in single combat.</p>
+            <p>The first thing you need to do is select your avatar by clicking on any of the
+               available choices.  Once you have selected your avatar, that selection is moved
+               to the first position on the left, and you are unable to click on it again.</p>
+            <p>Once your avatar is selected, select your first opponent.  Again, simply click
+               on one of the available choices.</p>
+            <p>As soon as you have selected your opponent, the fight appears.  Images for your
+               avatar and opponent along with a health status bar for each fighter.  Click the
+               "fight" button to start the action and see the results of the round.  Keep clicking
+               on the "fight" button until you or your opponent has been defeated.</p>
+            </p>If you successfully defeat your opponent, you will be given the opportunity to
+                select your next opponent.  This time, you will only see the choices you have
+                remaining.</p>
+            <p>Good Luck!</p>
+            <button id="hide-instructions">CLOSE</button>
+        </section>
+
+        <section class="info-screen" id="game-over">
+            <img src="http://placehold.it/150x150" alt="image of player avater" id="game-over-image">
+            <h4 id="game-over-text">placeholder text</h4>
+            <center>
+                <br>
+                <p>Click on "NEW GAME" to play again</p>
+                <button id="new-game">NEW GAME</button>
+            </center>
+        </section>
     </body>
 
     <script language="JavaScript"
