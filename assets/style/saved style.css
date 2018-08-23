@@ -28,6 +28,12 @@ body
 
 /* style specific to header and button bar
 */
+/* 
+.top-push
+{   height: 5px;
+    width: 100%;
+}
+*/
 
 header
 {   background: var(--head-bg-color);
@@ -111,7 +117,7 @@ main
     width: 90%;
 }
 
-.chooser, .fight-box
+.choice-box, .fight-box
 {   clear: both;
     display: flex;
     justify-content: center;

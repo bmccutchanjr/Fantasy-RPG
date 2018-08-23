@@ -155,15 +155,14 @@ var game =
 {   // The game is implemented as an object...
     //
 
-    iconBox: [],                // An empty array of all the children of .chooser.  These elements
-                                // represent the player's choices in the game
+    iconBox: [],                // An empty array of all the player choices in the game
+
     avatarSelected: false,
-    Avatar: "",                 // An empty object that will represent the player avatar during the game
-    Opponent: "",               // An empty object that will represent the player's opponent during the game
-    round: 0,
+    avatar: "",                 // An empty object that will represent the player avatar during the game
+    opponent: "",               // An empty object that will represent the player's opponent during the game
 
     numOpponents: 3,            // The number of opponents remaining.  The game defaults to 3
-    Theme: StarWars,            // The selected theme.  The default theme is StarWars.
+    themeSelected: StarWars,    // The selected theme.  The default theme is StarWars.
 
     // audio
     tada: new Audio("assets/audio/ta-da.mp3"),
@@ -175,64 +174,64 @@ var game =
 
         switch (theme)
         {   case  "boxers":
-            {   this.Theme = Boxers;
+            {   this.themeSelected = Boxers;
                 break;
             }
             case "scooby doo":
-            {   this.Theme = ScoobyDoo;
+            {   this.themeSelected = ScoobyDoo;
                 break;
             }
             default:
-            {   this.Theme = StarWars;
+            {   this.themeSelected = StarWars;
                 break;
             }
         }
 
         // set the page background
-        $("body").css("background", this.Theme.background);
-        $("body").css("background-image", "url(" + this.Theme.folder + this.Theme.image + ")");
+        $("body").css("background", this.themeSelected.background);
+        $("body").css("background-image", "url(" + this.themeSelected.folder + this.themeSelected.image + ")");
         // these attributes appear to be lost when the background image changes
         $("body").css("background-repeat", "repeat-y");
         $("body").css("background-attachment", "fixed");
         $("body").css("background-size", "100%");
 
-        $("body").css("color", this.Theme.color);
+        $("body").css("color", this.themeSelected.color);
 
-        $("button").css("background", this.Theme.header.background);
-        $("button").css("border-color", this.Theme.header.border.color);
-        $("button").css("color", this.Theme.header.color);
+        $("button").css("background", this.themeSelected.header.background);
+        $("button").css("border-color", this.themeSelected.header.border.color);
+        $("button").css("color", this.themeSelected.header.color);
 
         // the header
         // remove any border
         $("header").css("border", "none");
 
         // add the border as spec'd in the theme
-        for (var i=0; i<this.Theme.header.border.where.length; i++)
-        {   $("header").css("border-" + this.Theme.header.border.where[i] + "-color", this.Theme.header.border.color);
-            $("header").css("border-" + this.Theme.header.border.where[i] + "-style", this.Theme.header.border.style);
-            $("header").css("border-" + this.Theme.header.border.where[i] + "-width", this.Theme.header.border.width);
+        for (var i=0; i<this.themeSelected.header.border.where.length; i++)
+        {   $("header").css("border-" + this.themeSelected.header.border.where[i] + "-color", this.themeSelected.header.border.color);
+            $("header").css("border-" + this.themeSelected.header.border.where[i] + "-style", this.themeSelected.header.border.style);
+            $("header").css("border-" + this.themeSelected.header.border.where[i] + "-width", this.themeSelected.header.border.width);
         }
-        $("header").css("border-radius", this.Theme.header.border.radius);
+        $("header").css("border-radius", this.themeSelected.header.border.radius);
 
-        $("header").css("background", this.Theme.header.background);
-        $("header").css("color", this.Theme.header.color);
-        $("header h1").text(this.Theme.header.text);
+        $("header").css("background", this.themeSelected.header.background);
+        $("header").css("color", this.themeSelected.header.color);
+        $("header h1").text(this.themeSelected.header.text);
 
         // the footer
         // remove any border
         $("footer").css("border", "none");
 
         // add the border as spec'd in the theme (the same as the header)
-        for (var i=0; i<this.Theme.header.border.where.length; i++)
-        {   $("footer").css("border-" + this.Theme.header.border.where[i] + "-color", this.Theme.header.border.color);
-//             $("footer").css("border-" + this.Theme.header.border.where[i] + "-style", this.Theme.header.border.style);
-//             $("footer").css("border-" + this.Theme.header.border.where[i] + "-width", this.Theme.header.border.width);
-            $("footer").css("border-" + this.Theme.header.border.where[i] + "-style", "solid");
-            $("footer").css("border-" + this.Theme.header.border.where[i] + "-width", "1px");
+        for (var i=0; i<this.themeSelected.header.border.where.length; i++)
+        {   $("footer").css("border-" + this.themeSelected.header.border.where[i] + "-color", this.themeSelected.header.border.color);
+//             $("footer").css("border-" + this.themeSelected.header.border.where[i] + "-style", this.themeSelected.header.border.style);
+//             $("footer").css("border-" + this.themeSelected.header.border.where[i] + "-width", this.themeSelected.header.border.width);
+            $("footer").css("border-" + this.themeSelected.header.border.where[i] + "-style", "solid");
+            $("footer").css("border-" + this.themeSelected.header.border.where[i] + "-width", "1px");
         }
-        $("footer").css("border-radius", this.Theme.header.border.radius);
-        $("footer").css("background", this.Theme.header.background);
-        $("footer").css("color", this.Theme.header.color);
+        $("footer").css("border-radius", this.themeSelected.header.border.radius);
+        $("footer").css("background", this.themeSelected.header.background);
+        $("footer").css("color", this.themeSelected.header.color);
 
         // It works, but it breaks my sticky footer
         var high = document.getElementById("footer").offsetHeight + 10;
@@ -242,9 +241,9 @@ var game =
         for (var i=0; i<4; i++)
         {   // change name, health and image on avatar selection boxes
 
-            $("#name-" + (i+1)).text(this.Theme.avatar[i].name);
-            $("#img-" + (i+1)).attr("src", this.Theme.folder + this.Theme.avatar[i].fileName);
-            $("#health-" + (i+1)).text(this.Theme.avatar[i].health);
+            $("#name-" + (i+1)).text(this.themeSelected.avatar[i].name);
+            $("#img-" + (i+1)).attr("src", this.themeSelected.folder + this.themeSelected.avatar[i].fileName);
+            $("#health-" + (i+1)).text(this.themeSelected.avatar[i].health);
         }
     },
 
@@ -254,7 +253,7 @@ var game =
         // When the fight is hidden, the choice selection boxes should be displayed
 
         $(".choice").css("display", "block");
-        $(".chooser").css("display", "flex");
+        $(".choice-box").css("display", "flex");
 
         // now hide the fight elements
         $(".the-fight").css("display", "none");
@@ -272,7 +271,6 @@ var game =
         $(".the-fight").css("display", "block");
         $(".fight-box").css("display", "flex");
         $(".fight-bar").css("display", "flex");
-        $("#fight-button").text("ROUND " + ++this.round);
     },
 
     newGame()
@@ -286,8 +284,8 @@ var game =
         // player clicks on that element.  So any existing event listeners have to go away.
         //
         // The easiest way I know of to do that is...
-
-        $(".chooser").empty();
+        
+        $(".choice-box").empty();
 
         // No children -- no event listeners...
 
@@ -297,23 +295,23 @@ var game =
         {   // The icon boxes were removed from choice-box during the last game.  They need to be put
             // back
 
-            $(".chooser").append(this.iconBox[i]);
+            $(".choice-box").append(this.iconBox[i]);
             $("#choice-" + i).css("box-shadow", "0px 0px 0px");
 
             // reset attack strength
 
-            this.Theme.avatar[i].attack = this.Theme.avatar[i].counter;
+            this.themeSelected.avatar[i].attack = this.themeSelected.avatar[i].counter;
         }
-        
+
         // and the event listeners
         
         $(".choice").on("click", function()
-        {   game.selectAvatar($(this).attr("avatar"));
+        {   game.selectAvatar($(this).attr("which"));
         })
 
         this.avatarSelected = false;
         this.avatar = {};
-        this.Opponent = {};
+        this.opponent = {};
         this.numOpponents = 3;
 
         this.hideTheFight();
@@ -357,23 +355,21 @@ var game =
     selectAvatar(selection)
     {   // select the avatar the player has clicked on.  This selection becomes the player's avatar
         // or opponent depending on whether a player avatar has already been selected
-
-        this.round = 0;
-
+        
         if (!this.avatarSelected)
         {   // The player has not yet selected an avatar.  This is it...
         
             this.avatarSelected = true;
-            this.Avatar = this.Theme.avatar [selection - 1];
-            this.Avatar.health = this.Avatar.startHealth;
-            this.Avatar.counter = this.Avatar.attack;
+            this.avatar = this.themeSelected.avatar [selection - 1];
+            this.avatar.health = this.avatar.startHealth;
+            this.avatar.counter = this.avatar.attack;
 
             // Totally unnecessary code...move the players avatar selection to the first place in
             // selection box.
 
             var saveSelection = $("#choice-" + selection);
             $("#choice-" + selection).remove();
-            $(".chooser").prepend(saveSelection);
+            $(".choice-box").prepend(saveSelection);
 
             // finally I need to keep the selection so I can hide this choice later
             this.avatarSelection = selection;
@@ -381,10 +377,10 @@ var game =
             $("#choice-" + selection).css("box-shadow", "0px 0px 20px white");
             $("#fighter-1").attr("src", $("#img-" + selection).attr("src"));
 
-            $("#result-box").text("You have selected " + this.Theme.avatar [selection - 1].name);
+            $("#result-box").text("You have selected " + this.themeSelected.avatar [selection - 1].name);
             $("#prompt-box").text("Select your opponent");
-            $("#player-name").text(this.Theme.avatar [selection - 1].name);
-            $("#player-health").css("width", ((this.Avatar.health / this.Avatar.startHealth) * 100) + "%");
+            $("#player-name").text(this.themeSelected.avatar [selection - 1].name);
+            $("#player-health").css("width", ((this.avatar.health / this.avatar.startHealth) * 100) + "%");
             $("#player-health").css("backgroundColor", "red");
 
             // And one more thing...we don't want Darth Vader fighting Shaggy ao don't let the player change
@@ -398,8 +394,9 @@ var game =
         else
         {   // The player has selected an avatar.  This is it the opponent...
         
-            this.Opponent = this.Theme.avatar [selection - 1];
-            this.Opponent.health = this.Opponent.startHealth;
+            this.opponentSelected = true;
+            this.opponent = this.themeSelected.avatar [selection - 1];
+            this.opponent.health = this.opponent.startHealth;
 
             $("#fighter-2").attr("src", $("#img-" + selection).attr("src"));
 
@@ -407,9 +404,9 @@ var game =
             $("#choice-" + this.avatarSelection).remove();
             $("#choice-" + selection).remove();
 
-            $("#prompt-box").text("Click the FIGHT button");
-            $("#opponent-name").text(this.Theme.avatar [selection - 1].name);
-            $("#opponent-health").css("width", ((this.Opponent.health / this.Opponent.startHealth) * 100) + "%");
+            $("#prompt-box").text("ROUND 1 -- Click the FIGHT button");
+            $("#opponent-name").text(this.themeSelected.avatar [selection - 1].name);
+            $("#opponent-health").css("width", ((this.opponent.health / this.opponent.startHealth) * 100) + "%");
             $("#opponent-health").css("backgroundColor", "red");
 
             this.showTheFight();
@@ -436,18 +433,18 @@ var game =
         //
         // First, describe the action in the play-by-play box
 
-        $("#avatar-box").text(this.Avatar.name + " attacks " + this.Opponent.name + " for " + this.Avatar.attack + " points.");
+        $("#avatar-box").text(this.avatar.name + " attacks " + this.opponent.name + " for " + this.avatar.attack + " points.");
 
         // now, calculate the player avatar's attacks on the opponent
 
-        this.Opponent.health -= this.Avatar.attack;
-        this.Avatar.attack += this.Avatar.counter;
+        this.opponent.health -= this.avatar.attack;
+        this.avatar.attack += this.avatar.counter;
 
         // If the opponents health is 0 or less, this fight is over
 
-        if (this.Opponent.health <= 0)
+        if (this.opponent.health <= 0)
         {   $("#avatar-box").text("");
-            $("#result-box").text(this.Avatar.name + " has defeated " + this.Opponent.name + "!");
+            $("#result-box").text(this.avatar.name + " has defeated " + this.opponent.name + "!");
             
             --this.numOpponents;
 
@@ -456,7 +453,7 @@ var game =
                 //
                 // Let the player know and set up for another game
 
-                $("#game-over-text").text(this.Avatar.name + " has been victorious!");
+                $("#game-over-text").text(this.avatar.name + " has been victorious!");
                 $("#game-over").css("display", "block");
 
                 this.tada.load();
@@ -476,23 +473,23 @@ var game =
         {   // The opponent has not been defeated
 
             // display opponent's health status
-            var percentHealth = (this.Opponent.health / this.Opponent.startHealth) * 100;
+            var percentHealth = (this.opponent.health / this.opponent.startHealth) * 100;
             $("#opponent-health").css("width", percentHealth + "px");
             
             // And now the opponent gets to counter attack
             
             // first describe the action in the play-by-play box
 
-            $("#opponent-box").text(this.Opponent.name + " counter attacks " + this.Avatar.name + " for " + this.Opponent.attack + " points.");
+            $("#opponent-box").text(this.opponent.name + " counter attacks " + this.avatar.name + " for " + this.opponent.attack + " points.");
 
-            this.Avatar.health -= this.Opponent.counter;
+            this.avatar.health -= this.opponent.counter;
     
             // If the avatar's health is 0 or less, this fight is over
     
-            if (this.Avatar.health <= 0)
+            if (this.avatar.health <= 0)
             {   // Game over
 
-                $("#game-over-text").text("Oh no, " + this.Avatar.name + " has been defeated!  Game Over!");
+                $("#game-over-text").text("Oh no, " + this.avatar.name + " has been defeated!  Game Over!");
                 $("#game-over").css("display", "block");
 
                 this.wahwah.load();
@@ -501,11 +498,9 @@ var game =
             else
             {   // the game is not over...display the player's health status
 
-                var percentHealth = (this.Opponent.health / this.Opponent.startHealth) * 100;
+                var percentHealth = (this.opponent.health / this.opponent.startHealth) * 100;
                 $("#player-health").css("width", percentHealth + "px");
             }
-
-            $("#fight-button").text("ROUND " + ++this.round);
         }
     }
 }
@@ -550,5 +545,6 @@ $(document).ready (function()
         game.newGame();
     })
 
+//     game.themeSelected = StarWars;
     game.initGame();
 });
