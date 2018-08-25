@@ -25,12 +25,6 @@
             </header>
 
             <div class="button-bar">
-                <button id="show-instructions">
-                    SHOW INSTRUCTIONS
-                </button>
-
-                <div class="button-spacer">&nbsp;</div>
-
                 <button id="theme-button">
                     SHOW THEMES
                 </button>
@@ -46,31 +40,37 @@
                 <button id="star-wars-theme" class="themes" theme="star wars">
                     STAR WARS
                 </button>
+
+                <div class="button-spacer">&nbsp;</div>
+
+                <button id="show-instructions">
+                    SHOW INSTRUCTIONS
+                </button>
             </div>
 
             <main>
                 <div class="chooser">
                     <div class="choice icon-box" id="choice-1" avatar="1">
-                        <div id="name-1">NAME</div>
                         <img src="http://placehold.it/150x150" id="img-1" alt="avatar #1">
+                        <div id="name-1">NAME</div>
                         <div id="health-1">Health</div>
                     </div>
 
                     <div class="choice icon-box" id="choice-2" avatar="2">
-                        <div id="name-2">NAME</div>
                         <img src="http://placehold.it/150x150" id="img-2" alt="avatar #2">
+                        <div id="name-2">NAME</div>
                         <div id="health-2">Health</div>
                     </div>
     
                     <div class="choice icon-box" id="choice-3" avatar="3">
-                        <div id="name-3">NAME</div>
                         <img src="http://placehold.it/150x150" id="img-3" alt="avatar #3">
+                        <div id="name-3">NAME</div>
                         <div id="health-3">Health</div>
                     </div>
         
                     <div class="choice icon-box" id="choice-4" avatar="4">
-                        <div id="name-4">NAME</div>
                         <img src="http://placehold.it/150x150" id="img-4" alt="avatar #4">
+                        <div id="name-4">NAME</div>
                         <div id="health-4">Health</div>
                     </div>
                 </div>
@@ -79,38 +79,17 @@
 
                 <div id="prompt-box">Pick your avatar</div>
         
-                <div class="text-box the-fight" id="player-name">
-                    Name
-                </div>
-                <div class="stat-box the-fight">
-                    <div class="health-text">
-                        Health remaining:
-                    </div>
-                    <div class="health-box">
-                        <div id="player-health">
-
-                        </div>
-                    </div>
-                </div>
-
                 <div class="fight-box the-fight">
-                    <img src="http://placehold.it/150x150" alt="avatar #1" id="fighter-1">
+                    <div class="icon-box">
+                        <img src="http://placehold.it/150x150" alt="avatar #1" id="fighter-1">
+                        <div id="player-health">xxx</div>
+                    </div>
+
                     <div> <b>VS</b> </div>
         
-                    <img src="http://placehold.it/150x150" alt="avatar #2" id="fighter-2">
-                </div>
-
-                <div class="text-box the-fight" id="opponent-name">
-                    Name
-                </div>
-                <div class="stat-box the-fight">
-                    <div class="health-text">
-                        Health remaining:
-                    </div>
-                    <div class="health-box">
-                        <div id="opponent-health">
-    
-                        </div>
+                    <div class="icon-box">
+                        <img src="http://placehold.it/150x150" alt="avatar #2" id="fighter-2">
+                        <div id="opponent-health">xxx</div>
                     </div>
                 </div>
 

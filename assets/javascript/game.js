@@ -117,7 +117,7 @@ var StarWars =
     },
     folder: "assets/themes/starwars/",
     background: "black",
-    image: "background.jpg",
+    image: "none",
     color: "gold",
     avatar:
     [   {   name: "ObiWan Kenobi",
@@ -225,8 +225,6 @@ var game =
         // add the border as spec'd in the theme (the same as the header)
         for (var i=0; i<this.Theme.header.border.where.length; i++)
         {   $("footer").css("border-" + this.Theme.header.border.where[i] + "-color", this.Theme.header.border.color);
-//             $("footer").css("border-" + this.Theme.header.border.where[i] + "-style", this.Theme.header.border.style);
-//             $("footer").css("border-" + this.Theme.header.border.where[i] + "-width", this.Theme.header.border.width);
             $("footer").css("border-" + this.Theme.header.border.where[i] + "-style", "solid");
             $("footer").css("border-" + this.Theme.header.border.where[i] + "-width", "1px");
         }
@@ -239,12 +237,42 @@ var game =
         $(".wrapper").css("margin-bottom", high * -1);
         $(".push").css("height", high);
         
+        // the instructions
+        // remove any border
+        $("#instructions").css("border", "none");
+
+        // add the border as spec'd in the theme (the same as the header)
+        for (var i=0; i<this.Theme.header.border.where.length; i++)
+        {   $("#instructions").css("border-" + this.Theme.header.border.where[i] + "-color", this.Theme.header.border.color);
+            $("#instructions").css("border-" + this.Theme.header.border.where[i] + "-style", this.Theme.header.border.style);
+            $("#instructions").css("border-" + this.Theme.header.border.where[i] + "-width", this.Theme.header.border.width);
+        }
+        $("#instructions").css("border-radius", this.Theme.header.border.radius);
+
+        $("#instructions").css("background", this.Theme.header.background);
+        $("#instructions").css("color", this.Theme.header.color);
+
+        // the game-over dialog
+        // remove any border
+        $("#game-over").css("border", "none");
+
+        // add the border as spec'd in the theme (the same as the header)
+        for (var i=0; i<this.Theme.header.border.where.length; i++)
+        {   $("#game-over").css("border-" + this.Theme.header.border.where[i] + "-color", this.Theme.header.border.color);
+            $("#game-over").css("border-" + this.Theme.header.border.where[i] + "-style", this.Theme.header.border.style);
+            $("#game-over").css("border-" + this.Theme.header.border.where[i] + "-width", this.Theme.header.border.width);
+        }
+        $("#game-over").css("border-radius", this.Theme.header.border.radius);
+
+        $("#game-over").css("background", this.Theme.header.background);
+        $("#game-over").css("color", this.Theme.header.color);
+
         for (var i=0; i<4; i++)
         {   // change name, health and image on avatar selection boxes
 
             $("#name-" + (i+1)).text(this.Theme.avatar[i].name);
             $("#img-" + (i+1)).attr("src", this.Theme.folder + this.Theme.avatar[i].fileName);
-            $("#health-" + (i+1)).text(this.Theme.avatar[i].health);
+            $("#health-" + (i+1)).text(this.Theme.avatar[i].startHealth);
         }
     },
 
@@ -298,7 +326,7 @@ var game =
             // back
 
             $(".chooser").append(this.iconBox[i]);
-            $("#choice-" + i).css("box-shadow", "0px 0px 0px");
+            $("#choice-" + (i + 1)).css("box-shadow", "0px 0px 0px");
 
             // reset attack strength
 
@@ -380,14 +408,14 @@ var game =
 
             $("#choice-" + selection).css("box-shadow", "0px 0px 20px white");
             $("#fighter-1").attr("src", $("#img-" + selection).attr("src"));
+            $("#game-over-image").attr("src", $("#img-" + selection).attr("src"));
 
             $("#result-box").text("You have selected " + this.Theme.avatar [selection - 1].name);
             $("#prompt-box").text("Select your opponent");
             $("#player-name").text(this.Theme.avatar [selection - 1].name);
-            $("#player-health").css("width", ((this.Avatar.health / this.Avatar.startHealth) * 100) + "%");
-            $("#player-health").css("backgroundColor", "red");
+            $("#player-health").text(this.Avatar.health);
 
-            // And one more thing...we don't want Darth Vader fighting Shaggy ao don't let the player change
+            // And one more thing...we don't want Darth Vader fighting Shaggy so don't let the player change
             // themes after selecting his avatar.
 
             // Hide all of the theme related buttons
@@ -409,8 +437,7 @@ var game =
 
             $("#prompt-box").text("Click the FIGHT button");
             $("#opponent-name").text(this.Theme.avatar [selection - 1].name);
-            $("#opponent-health").css("width", ((this.Opponent.health / this.Opponent.startHealth) * 100) + "%");
-            $("#opponent-health").css("backgroundColor", "red");
+            $("#opponent-health").text(this.Opponent.health);
 
             this.showTheFight();
         }
@@ -476,14 +503,13 @@ var game =
         {   // The opponent has not been defeated
 
             // display opponent's health status
-            var percentHealth = (this.Opponent.health / this.Opponent.startHealth) * 100;
-            $("#opponent-health").css("width", percentHealth + "px");
+            $("#opponent-health").text(this.Avatar.health);
             
             // And now the opponent gets to counter attack
             
             // first describe the action in the play-by-play box
 
-            $("#opponent-box").text(this.Opponent.name + " counter attacks " + this.Avatar.name + " for " + this.Opponent.attack + " points.");
+            $("#opponent-box").text(this.Opponent.name + " counters " + this.Avatar.name + " for " + this.Opponent.attack + " points.");
 
             this.Avatar.health -= this.Opponent.counter;
     
@@ -501,8 +527,7 @@ var game =
             else
             {   // the game is not over...display the player's health status
 
-                var percentHealth = (this.Opponent.health / this.Opponent.startHealth) * 100;
-                $("#player-health").css("width", percentHealth + "px");
+                $("#player-health").text(this.Avatar.health);
             }
 
             $("#fight-button").text("ROUND " + ++this.round);

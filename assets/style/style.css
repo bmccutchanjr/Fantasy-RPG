@@ -2,20 +2,8 @@
 {   box-sizing: border-box;
 }
 
-:root
-{   --bg-color: blue;
-    --border-color: black;
-    --btn-color: blue;
-    --btn-bg-color: blue;
-    --btn-border-color: blue;
-    --text-color: white;
-    --head-bg-color: green;
-    --head-border-color: #004400;
-}
-
 body
-{   /* background: purple; */
-    background: url("../themes/starwars/background.jpg");
+{   background: url("../themes/starwars/background.jpg");
     background-repeat: repeat-y;
     background-attachment: fixed;
     background-size: 100%;
@@ -30,13 +18,7 @@ body
 */
 
 header
-{   background: var(--head-bg-color);
-    border-color: var(--head-border-color);
-    border-radius: 2px;
-    border-style: solid;
-    border-width: 2px;
-    color: black;
-    font-family: sans-serif;
+{   font-family: sans-serif;
     font-size: 30px;
     font-weight: bold;
     margin: 5px auto;
@@ -48,39 +30,27 @@ header
 }
 
 .button-bar
-{   /* background: purple; */
-    height: 24px;
+{   height: auto;
     margin: 5px auto;
-    /* margin-bottom: 20px; */
     overflow: auto;
     width: 90%;
 }
 
 button
-{   background: var(--btn-bg-color);
-    border-color: var(--btn-border-color);
-    border-radius: 10px;
+{   border-radius: 10px;
     border-style: solid;
     border-width: 1px;
     font-size: 10px;
     float: left;
     margin-right: 5px;
     padding: 5px 10px 5px 10px;
-    /* width: 100%; */
 }
 
 #fight-button
-{   /* background: var(--btn-bg-color); */
-    /* border-color: var(--btn-border-color); */
-    border-radius: 20px;
-    /* border-style: solid; */
-    /* border-width: 1px; */
+{   border-radius: 20px;
     font-size: 20px;
     font-weight: bold;
-    /* float: left; */
-    /* margin-right: 5px; */
     padding: 10px 20px 10px 20px;
-    /* width: 100%; */
 }
 
 button:hover
@@ -90,6 +60,7 @@ button:hover
 
 .button-spacer
 {   float: left;
+    height: 24px;
     width: 25px;
 }
 
@@ -100,12 +71,7 @@ button:hover
 */
 
 main
-{   background: rgba(255, 0, 255, 0.5);
-    /* border-color: black;
-    border-radius: 2px;
-    border-style: solid;
-    border-width: 2px; */
-    clear: both;
+{   clear: both;
     height: auto;
     margin: 0px auto;
     width: 90%;
@@ -115,10 +81,9 @@ main
 {   clear: both;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
-/* .choice */
 .icon-box
 {   border: 1px solid black;
     border-radius: 2px;
@@ -130,7 +95,6 @@ main
     width: 152px;
 }
 
-/* .choice img, .fight-box img */
 .icon-box img, .fight-box img
 {   border: 2px solid black;
     border-radius: 50%;
@@ -141,14 +105,8 @@ main
     width: 150px;
 }
 
-.fight-box img
-{   margin-left: 20px;
-    margin-right: 20px;
-}
-
 #prompt-box, .text-box
-{   background-color: rgba(255, 255, 0, 0.5);
-    font-size: 24px;
+{   font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -156,8 +114,7 @@ main
 }
 
 .stat-box, .text-box
-{   border: 1px solid red;
-    height: 24px;
+{   height: 24px;
     margin: 0px auto;
     position: relative;
     width: 75%;
@@ -167,35 +124,16 @@ main
 {   margin-bottom: 5px;
 }
 
-.health-text
-{   float: left;
-    width: 25%;
-}
-
-.health-box
-{   border: 1px solid black;
-    border-radius: 2px;
-    float: left;
-    height: auto;
-    padding: 2px;
-    position: relative;
-    width: 75%;
-}
-
 #player-health, #opponent-health
-{   background-color: black;
-    height: 15px;
+{   height: auto;
     width: 100%;
 }
 
 .fight-bar
-{   background: purple;
-    clear: both;
+{   clear: both;
     display: flex;
-    /* height: auto; */
     justify-content: center;
     margin: 20px auto;
-    /* margin-bottom: 20px; */
     overflow: auto;
     width: 90%;
 }
@@ -222,12 +160,12 @@ main
 {   font-size: 20px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .info-screen p
-{   margin-bottom: 5px;
-    margin-top: 5px;
+{   margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 .info-screen img
@@ -256,18 +194,12 @@ body, html
 }
 
 .push
-{   /* background: yellow; */
-    height: 42px;
+{   height: 42px;
     width: 100%;
 }
 
 footer
-{   background: var(--head-bg-color);
-    border-color: var(--head-border-color);
-    border-radius: 2px;
-    border-style: solid;
-    border-width: 1px;
-    clear: both;
+{   clear: both;
     font-size: 10px;
     height: auto;
     margin: 5px auto;
@@ -279,20 +211,43 @@ footer
 /* end style specific to sticky footer
 */
 
-@media screen and (max-width: 992px)
-{   main
-    {   background-color: rgba(255, 0, 0, 0.5);
+    @media screen and (max-width: 775px)
+    {   .icon-box
+        {   width: 127px;
+        }
+    
+        .icon-box img, .fight-box img
+        {   height: auto;
+            width: 125px;
+        }
     }
-}
 
-@media screen and (max-width: 768px)
-{   main
-    {   background-color: rgba(0, 255, 0, 0.5);
+    @media screen and (max-width: 665px)
+    {   .icon-box
+        {   float: left;
+            width: 102px;
+        }
+        
+        .icon-box img, .fight-box img
+        {   height: auto;
+            width: 100px;
+        }
     }
-}
-
-@media screen and (max-width: 576px)
-{   main
-    {   background-color: rgba(0, 0, 255, 0.5);
+    
+    @media screen and (max-width: 576px)
+    {   .icon-box
+        {   float: left;
+            width: 77px;
+        }
+        
+        .icon-box img, .fight-box img
+        {   height: auto;
+            width: 75px;
+        }
     }
-}
+    
+    @media screen and (max-width: 420px)
+    {   .button-spacer
+        {   width: 0px;
+        }
+    }
